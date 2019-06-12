@@ -1,4 +1,4 @@
-import GameFacade from '../../GameFacade';
+import UserVOProxy from '../../model/UserVOProxy';
 import BaseSceneMediator from './BaseSceneMediator';
 import BootScene from './BootScene';
 
@@ -10,12 +10,13 @@ export default class BootSceneMediator extends BaseSceneMediator<BootScene> {
   }
 
   public registerNotificationInterests(): void {
-    this.subscribeToNotifications(GameFacade.STARTUP);
+    this.subscribeToNotifications(UserVOProxy.INITIALIZE_SUCCESS_NOTIFICATION);
   }
 
   public handleNotification(notificationName: string): void {
     switch (notificationName) {
-      case GameFacade.STARTUP:
+      case UserVOProxy.INITIALIZE_SUCCESS_NOTIFICATION:
+        this.sceneManager.start(BootScene.NAME);
         break;
       default:
         console.warn(`${notificationName} is unhandled!`);
@@ -32,7 +33,6 @@ export default class BootSceneMediator extends BaseSceneMediator<BootScene> {
     const bootScene: BootScene = new BootScene();
     this.sceneManager.add(BootScene.NAME, bootScene);
     this.setViewComponent(bootScene);
-    this.sceneManager.start(BootScene.NAME);
     super.setView();
   }
 

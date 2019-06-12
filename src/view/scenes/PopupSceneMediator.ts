@@ -20,6 +20,8 @@ export default class PopupSceneMediator extends BaseSceneMediator<PopupScene> {
   public handleNotification(notificationName: string, ...args: any[]): void {
     switch (notificationName) {
       case BootScene.LOAD_COMPLETE_NOTIFICATION:
+        this.sceneManager.start(PopupScene.NAME);
+        this.sceneManager.sleep(PopupScene.NAME);
         this.registerGamePopups();
         break;
       default:
@@ -41,8 +43,6 @@ export default class PopupSceneMediator extends BaseSceneMediator<PopupScene> {
     const popupScene: PopupScene = new PopupScene();
     this.sceneManager.add(PopupScene.NAME, popupScene);
     this.setViewComponent(popupScene);
-    this.sceneManager.start(PopupScene.NAME);
-    this.sceneManager.sleep(PopupScene.NAME);
     super.setView();
   }
 
