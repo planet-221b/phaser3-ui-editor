@@ -13,7 +13,6 @@ export function initializeFirebaseApp(): void {
     authDomain: FIREBASE_DB_CONFIG.AUTH_DOMAIN,
     projectId: FIREBASE_DB_CONFIG.PROJECT_ID,
   });
-  console.warn(firebase.firestore());
 }
 
 export async function authenticate(

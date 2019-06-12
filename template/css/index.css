@@ -4,9 +4,7 @@ body {
   padding: 0;
 }
 
-#game-container {
-  background: url(../img/logo.png) no-repeat center top;
-  170pxx 200px
+#game-container 
   background-position: center;
   position: fixed;
   height: 100%;

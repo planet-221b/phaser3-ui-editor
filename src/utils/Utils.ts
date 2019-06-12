@@ -9,11 +9,11 @@ export const gameConfiguration: IConfig = {
   type: Phaser.WEBGL,
   width: gameConfig.canvasWidth,
   height: gameConfig.canvasHeight,
-  backgroundColor: '#ffffff',
+  // backgroundColor: '#ffffff',
   parent: 'game-container',
   title: '<GAME NAME>',
   scene: [],
-  transparent: false,
+  transparent: true,
   dom: {
     createContainer: true,
   },
@@ -272,7 +272,7 @@ export interface IConfig {
   parent: string;
   scene: any[];
   title: string;
-  backgroundColor: string;
+  // backgroundColor: string;
   transparent: boolean;
   dom: any;
   plugins?: any;
