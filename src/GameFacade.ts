@@ -2,10 +2,7 @@ import { Facade } from '@candywings/pure-mvc';
 import StartupCommand from './controller/StartupCommand';
 import Game from './Game';
 import BootSceneMediator from './view/scenes/BootSceneMediator';
-import GameSceneMediator from './view/scenes/GameSceneMediator';
 import PopupSceneMediator from './view/scenes/PopupSceneMediator';
-import PreloadSceneMediator from './view/scenes/PreloadSceneMediator';
-import ServiceSceneMediator from './view/scenes/ServiceSceneMediator';
 
 const consoleArgs: string[] = [
   ``,
@@ -65,11 +62,8 @@ export default class GameFacade extends Facade {
 
   protected initializeView(): void {
     super.initializeView();
-    this.registerMediator(new ServiceSceneMediator());
     this.registerMediator(new PopupSceneMediator());
     this.registerMediator(new BootSceneMediator());
-    this.registerMediator(new PreloadSceneMediator());
-    this.registerMediator(new GameSceneMediator());
   }
 
   private startup(): void {

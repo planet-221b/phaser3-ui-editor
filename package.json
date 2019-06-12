@@ -96,6 +96,7 @@
     "csp-parse": "0.0.2",
     "elementtree": "^0.1.7",
     "es6-promise-plugin": "^4.2.2",
+    "firebase": "^6.1.1",
     "glob": "^7.1.3",
     "heyzap-cordova": "^1.5.1",
     "heyzap-cordova-admob": "git+https://github.com/Heyzap/heyzap-cordova-admob.git",

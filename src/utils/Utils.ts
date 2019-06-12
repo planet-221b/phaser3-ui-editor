@@ -4,7 +4,6 @@ import { I18nPlugin } from '@koreez/phaser3-i18n';
 import { NinePatchPlugin } from '@koreez/phaser3-ninepatch';
 import { gameConfig } from '../constants/GameConfig';
 import GameFacade from '../GameFacade';
-import ServiceScene from '../view/scenes/ServiceScene';
 
 export const gameConfiguration: IConfig = {
   type: Phaser.WEBGL,
@@ -77,8 +76,11 @@ export function removeRunnable(runnable: Phaser.Time.TimerEvent): void {
   runnable.destroy();
 }
 
-export function postRunnable(callback: Function, context?: any): void {
-  const scene: Phaser.Scene = getScene(ServiceScene.NAME);
+export function postRunnable(
+  scene: Phaser.Scene,
+  callback: Function,
+  context?: any,
+): void {
   delayRunnable(scene, scene.game.loop.delta, callback, context);
 }
 

@@ -1,7 +1,4 @@
-import { Images } from '../../assets';
 import Game from '../../Game';
-import PlayerVOProxy from '../../model/PlayerVOProxy';
-import { loadImages } from '../utils/assetLoader';
 import BaseScene from './BaseScene';
 
 export default class BootScene extends BaseScene {
@@ -16,13 +13,13 @@ export default class BootScene extends BaseScene {
     super(BootScene.NAME);
   }
   public preload(): void {
-    loadImages(this, Images);
+    // loadImages(this, Images);
   }
 
   public create(): void {
     this.i18n.initialize(
       {
-        fallbackLng: PlayerVOProxy.defaultLanguage,
+        fallbackLng: 'en',
         loadPath: 'assets/locales/{{lng}}/{{ns}}.json',
         debug: false,
       },

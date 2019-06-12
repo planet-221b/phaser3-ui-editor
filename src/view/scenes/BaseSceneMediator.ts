@@ -1,8 +1,6 @@
 import { SCENE_EVENT } from '../../constants/PhaserEvents';
 import Game from '../../Game';
 import GameFacade from '../../GameFacade';
-import PlayerVOProxy from '../../model/PlayerVOProxy';
-import { postRunnable } from '../../utils/Utils';
 import { BaseMediator } from '../base/BaseMediator';
 import BaseScene from './BaseScene';
 
@@ -33,9 +31,7 @@ export default abstract class BaseSceneMediator<
   }
 
   protected async startScene(): Promise<void> {
-    postRunnable(() => {
-      this.sceneManager.start((this.viewComponent.constructor as any)['NAME']);
-    });
+    this.sceneManager.start((this.viewComponent.constructor as any)['NAME']);
   }
 
   protected async stopScene(): Promise<void> {
@@ -103,15 +99,6 @@ export default abstract class BaseSceneMediator<
       this.onScenePostupdate,
       this,
     );
-  }
-
-  protected updateLanguage(): void {
-    const playerVOProxy: PlayerVOProxy = this.facade.retrieveProxy(
-      PlayerVOProxy.NAME,
-    );
-    if (playerVOProxy) {
-      this.viewComponent.updateLanguage(playerVOProxy.vo.settings.lang);
-    }
   }
 
   protected onSceneStart(): void {
