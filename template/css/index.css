@@ -1,11 +1,12 @@
-html,
+/* html,
 body {
   margin: 0;
   padding: 0;
 }
 
 #game-container {
-  /* background: url(../img/logo.png) no-repeat center top; */ /* 170px x 200px */
+  background: url(../img/logo.png) no-repeat center top;
+  170pxx 200px
   background-position: center;
   position: fixed;
   height: 100%;
@@ -19,4 +20,4 @@ body {
   width: 100%;
   overflow: hidden;
   background-color: black;
-}
+} */
